@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Login User</h1>
+        <form action="login" method="POST" th:object="${user}">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td> : </td>
+                        <td><input type="text" th:name="username" placeholder="Input your username"></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td> : </td>
+                        <td><input type="text" th:name="password" placeholder="Input your password"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit">Login</button>
+        </form>
+        <br/>
+        <p>Don't have account? Please <a th:href="registration">registration</a> first</p>
+    </body>
+</html>

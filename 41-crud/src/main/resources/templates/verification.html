@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form method="POST" th:action="@{verification}">
+                <table>
+                    <tr>
+                        <td>Input your verification code here</td>
+                        <td><input type="text" th:name="verifCode"></td>
+                    </tr>
+                </table>
+                <button type="submit">Check</button>
+            </form>
+        </div>
+    </body>
+</html>

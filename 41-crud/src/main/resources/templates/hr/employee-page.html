@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>HR - EMPLOYEE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a th:href="@{employee-page/insert}">Add</a>
+        <br/>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Hire Date</th>
+                    <th>Job ID</th>
+                    <th>Salary</th>
+                    <th>Commission</th>
+                    <th>Manager ID</th>
+                    <th>Department ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="emp : ${employee}">
+                    <td th:text="${emp.id}"></td>
+                    <td th:text="${emp.firstName}"></td>
+                    <td th:text="${emp.lastName}"></td>
+                    <td th:text="${emp.email}"></td>
+                    <td th:text="${emp.phoneNumber}"></td>
+                    <td th:text="${emp.hireDate}"></td>
+                    <td th:text="${emp.job.id}"></td>
+                    <td th:text="${emp.salary}"></td>
+                    <td th:text="${emp.commissionPct}"></td>
+                    <td th:text="${emp.manager?.id}"></td>
+                    <td th:text="${emp.department?.id}"></td>
+                    <td>
+                        <a th:href="@{employee-page/update/{id} (id=${emp.id})}">Edit</a>
+                        <a th:href="@{employee-page/delete/{id} (id=${emp.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>

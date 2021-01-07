@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a th:href="@{/region-page/add}">Add</a>
+        <br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Region ID</th>
+                    <th>Region Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="region : ${region}">
+                    <td th:text="${region.id}"></td>
+                    <td th:text="${region.name}"></td>
+                    <td>
+                        <a th:href="@{/region-page/edit/{id} (id=${region.id})}">Edit</a>
+                        <a th:href="@{/region-page/delete/{id} (id=${region.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>

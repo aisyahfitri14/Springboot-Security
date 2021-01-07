@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>HR Employee Update</h1>
+
+        <form th:action="@{../update/{id} (id = ${employee.id})}" th:object="${emp}" method="POST">
+            <br>
+            <label> First Name : </label>
+            <br>
+            <input type="text" th:name="firstName" th:value="${employee.firstName}">
+            <br>
+
+            <label> Last Name : </label>
+            <br>
+            <input type="text" th:name="lastName" th:value="${employee.lastName}">
+            <br>
+
+            <label> Email : </label>
+            <br>
+            <input type="text" th:name="email" th:value="${employee.email}">
+            <br>
+
+            <label> Phone Number : </label>
+            <br>
+            <input type="text" th:name="phoneNumber" th:value="${employee.phoneNumber}">
+            <br>
+
+            <label> Hire Date : </label>
+            <br>
+            <input type="text" th:name="hireDate" th:value="${employee.hireDate}">
+            <br>
+
+            <label> Job Id : </label>
+            <select th:name="jobId">
+                <option th:text="${employee.job.title}"
+                        th:value="${employee.job.id}"></option>
+                <option th:each="job : ${job}"
+                        th:value="${job.id}"
+                        th:text="${job.title}"
+                        ></option>
+            </select>
+            <br>
+
+            <label> Salary : </label>
+            <br>
+            <input type="text" th:name="salary" th:value="${employee.salary}">
+            <br>
+
+            <label> Commission PCT : </label>
+            <br>
+            <input type="text" th:name="commissionPct" th:value="${employee.commissionPct}">
+            <br>
+
+            <label> Manager Id : </label>
+            <br>
+<!--            <input type="text" th:name="managerId" th:value="${employee.manager.id}">-->
+            <select th:name = "managerId">
+                <option th:text="${employee.manager.id} + ' - ' + ${employee.manager.firstName} + ' ' + ${employee.manager.lastName}"
+                        th:value="${employee.manager.id}"></option>
+                <option th:each="manager : ${manager}"
+                        th:value="${manager.id}"
+                        th:text="${manager.id} + ' ' + ${manager.firstName} + ' ' + ${manager.lastName}"
+                ></option>
+            </select>
+            <br>
+
+            <label> Department Id : </label>
+            <br>
+<!--            <input type="text" th:name="departmentId" th:value="${employee.department.id}">-->
+            <select th:name="departId">
+                <option th:text="${employee.department.id} + ' ' + ${employee.department.name}"
+                        th:value="${employee.department.id}"></option>
+                <option th:each="depart : ${department}"
+                        th:value="${depart.id}"
+                        th:text="${depart.id} + ' - ' + ${depart.name}"
+                        ></option>
+            </select>
+            <br>
+
+            <br>
+            <input type="submit" value="Submit"/>
+        </form>
+
+    </body>
+</html>

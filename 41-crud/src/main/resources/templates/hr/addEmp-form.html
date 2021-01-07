@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<<html>
+    <head>
+        <title>Employee Insert</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>HR Form</h1>
+
+        <form th:action="insert" method="POST">
+            <br>
+            <label> Employee Id : </label>
+            <br>
+            <input type="text" th:name="id">
+            <br>
+            <label> First Name : </label>
+            <br>
+            <input type="text" th:name="firstName">
+            <br>
+            <label> Last Name: </label>
+            <br>
+            <input type="text" th:name="lastName">
+            <br>
+            <label> Email : </label>
+            <br>
+            <input type="text" th:name="email">
+            <br>
+            <label> Phone Number : </label>
+            <br>
+            <input type="text" th:name="phoneNumber">
+            <br>
+            <label> Hire Date : </label>
+            <br>
+            <input type="date" th:name="hireDate">
+            <br>
+            
+            <label> Job Id : </label>
+            <select th:name="jobId">
+                <option value="0">Select Job</option>
+                <option th:each="job : ${job}"
+                        th:value="${job.id}"
+                        th:text="${job.title}"
+               ></option>
+            </select>
+            
+            <br>
+            <label> Salary : </label>
+            <br>
+            <input type="text" th:name="salary">
+            <br>
+            <label> Commission PCT : </label>
+            <br>
+            <input type="text" th:name="commissionPct">
+            <br>
+            
+            <label> Manager Id : </label>
+            <select th:name = "managerId">
+                <option value="0">Select Manager</option>
+                <option th:each="manager : ${manager}"
+                        th:value="${manager.id}"
+                        th:text="${manager.firstName} + ' ' + ${manager.lastName}"
+                ></option>
+            </select>
+            
+            <br>
+            <label> Department Id : </label>
+            <br>
+            <select th:name = "departId">
+                <option value="0">Select Department</option>
+                <option th:each="depart : ${department}"
+                        th:value="${depart.id}"
+                        th:text="${depart.id} + ' - ' + ${depart.name}"
+                ></option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Submit"/>
+        </form>
+        
+    </body>
+</html>
